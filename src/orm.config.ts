@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { ImportUsers1650112967415 } from "./migrations/1650112967415-ImportUsers";
 
 export const ormConfig: TypeOrmModuleOptions = {
     type: "postgres",
@@ -12,5 +13,5 @@ export const ormConfig: TypeOrmModuleOptions = {
     cli: {
         migrationsDir: "src/migrations"
     },
-    migrations: []
+    migrations: [ImportUsers1650112967415]
 };

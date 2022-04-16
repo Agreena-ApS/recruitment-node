@@ -1,7 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { CarbonCertificateEntity } from "../../carbon-certificate/entity/carbonCertificate.entity";
 
 @Entity("USERS")
 export class UserEntity {
+    constructor(part: Partial<UserEntity>) {
+        Object.assign(this, part);
+    }
+
     @PrimaryGeneratedColumn("uuid")
     id: string;
 
@@ -13,4 +18,7 @@ export class UserEntity {
 
     @Column("varchar")
     password: string;
+
+    @OneToMany(() => CarbonCertificateEntity, (certificate) => certificate.owner)
+    certificates: CarbonCertificateEntity[];
 }

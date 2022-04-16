@@ -1,9 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { UserEntity } from "../../users/entity/user.entity";
 import { CARBON_CERTIFICATE_STATUS_TYPE } from "../interface/carbonCertificateStatusType";
 
 @Entity("CARBON_CERTIFICATES")
 export class CarbonCertificateEntity {
+    constructor(part: Partial<CarbonCertificateEntity>) {
+        Object.assign(this, part);
+    }
+
     @PrimaryGeneratedColumn("uuid")
     id: string;
 
@@ -17,6 +21,6 @@ export class CarbonCertificateEntity {
     })
     status: CARBON_CERTIFICATE_STATUS_TYPE;
 
-    @Column("uuid", { nullable: true, default: null })
-    owner: UserEntity["id"];
+    @ManyToOne(() => UserEntity, (user) => user.certificates)
+    owner: UserEntity[];
 }
