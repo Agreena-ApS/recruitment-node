@@ -9,5 +9,8 @@ export const ormConfig: TypeOrmModuleOptions = {
     database: process.env.DB_NAME,
     entities: [__dirname + "/**/*.entity{.ts,.js}"],
     synchronize: false,
+    cli: {
+        migrationsDir: "src/migrations"
+    },
     migrations: []
 };
