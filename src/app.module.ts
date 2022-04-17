@@ -15,7 +15,6 @@ import { UserModule } from "./users/user.module";
         CarbonCertificateModule,
         UserModule
     ],
-    controllers: [],
     exports: [JwtModule]
 })
 export class AppModule {}
