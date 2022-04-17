@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 import { JwtModule } from "@nestjs/jwt";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { AuthModule } from "./auth/auth.module";
 import { CarbonCertificateModule } from "./carbon-certificate/carbonCertificate.module";
 import { ormConfig } from "./orm.config";
 import { UserModule } from "./users/user.module";
@@ -13,7 +14,8 @@ import { UserModule } from "./users/user.module";
             global: true
         },
         CarbonCertificateModule,
-        UserModule
+        UserModule,
+        AuthModule
     ],
     exports: [JwtModule]
 })

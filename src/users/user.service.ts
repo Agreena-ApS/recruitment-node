@@ -30,4 +30,8 @@ export class UserService {
         const entity = await this.userRepository.findOne(userId);
         return entity ? entity : null;
     }
+
+    public async getUserByEmail(email: string): Promise<UserEntity> {
+        return this.userRepository.findOne({ email });
+    }
 }

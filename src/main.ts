@@ -32,7 +32,7 @@ async function bootstrap() {
         .setTitle("API Swagger")
         .setDescription("Swagger documentation of Agreena")
         .setVersion("1.0")
-        // .addBearerAuth({ type: "http", name: "authorization", in: "header", scheme: "bearer", bearerFormat: "JWT" })
+        .addBearerAuth({ type: "http", name: "authorization", in: "header", scheme: "bearer", bearerFormat: "JWT" })
         .build();
     const swaggerDocument = SwaggerModule.createDocument(app, swaggerOptions);
     SwaggerModule.setup("/api/docs", app, swaggerDocument);

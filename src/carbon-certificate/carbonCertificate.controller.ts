@@ -1,5 +1,7 @@
-import { Controller, Get, HttpStatus, Inject, Param, ParseUUIDPipe, Put, Query } from "@nestjs/common";
-import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { Controller, Get, HttpStatus, Inject, Param, ParseUUIDPipe, Put, Query, UseGuards } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { STRATEGY } from "../auth/strategies/strategy";
 import { CarbonCertificateService } from "./carbonCertificate.service";
 import { CarbonCertificateQueryParams } from "./dto/carbonCertificateQueryParams";
 import { CarbonCertificateEntity } from "./entity/carbonCertificate.entity";
@@ -7,6 +9,8 @@ import { CARBON_CERTIFICATE_SERVICE } from "./ioc";
 
 @Controller("carbon-certificates")
 @ApiTags("Carbon Certificates")
+@ApiBearerAuth()
+@UseGuards(AuthGuard(STRATEGY.JWT))
 export class CarbonCertificateController {
     constructor(
         @Inject(CARBON_CERTIFICATE_SERVICE)
