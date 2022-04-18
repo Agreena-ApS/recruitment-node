@@ -34,14 +34,14 @@
             "type": "node",
             "request": "launch",
             "name": "Jest File",
-            "program": "${workspaceFolder}/app/node_modules/jest/bin/jest",
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest",
             "env": {
                 "TZ": "UTC"
             },
             "args": [
                 "--runInBand",
                 "${fileBasenameNoExtension}",
-                "--config=${workspaceFolder}/app/package.json",
+                "--config=${workspaceFolder}/package.json",
                 "--coverage=false"
             ],
             "console": "integratedTerminal",
