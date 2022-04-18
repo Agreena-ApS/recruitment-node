@@ -1,11 +1,11 @@
+import { config } from "dotenv";
+config();
 import { ValidationPipe, VersioningType } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { json, urlencoded } from "body-parser";
-import { config } from "dotenv";
 import { AppModule } from "./app.module";
-config();
 
 async function bootstrap() {
     const app = await NestFactory.create<NestExpressApplication>(AppModule, { bodyParser: true, cors: true });
