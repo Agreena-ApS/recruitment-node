@@ -1,29 +1,26 @@
-![Agreena](https://agreena.com/wp-content/uploads/2021/06/agreena-logo.svg)
+Backend 
 
-# NodeJS recruitment test task
+1- .env (NODE_ENV=dev)
+2- 'npm i'
+3- run 'npm test' to check everything is working fine
+4- run 'npm run build'
+5- run 'node seeder.js'
+6- run 'npm start'
 
-### Carbon Certificates application API
-Create the API containing endpoints:
-1. Login
-2. List of available Carbon certificates (*no owner*)
-3. List of owned Carbon certificates (*owned by current user*)
-4. Transfer my own Carbon certificate to the another existing user (*based on the User ID parameter*)
 
-##### Data informations
-**Carbon certificate** should contain the following data:
-- Unique ID
-- Country
-- Status:
-  - `available` (*no owner*)
-  - `owned` (*owner is present and certificate hasn't been transferred*)
-  - `transferred` (*owner is present and certificate has been transferred from one owner to another*)
-- Owner (*relation to existing user, can be empty*)
+We have an admin user that can access all data and transfer any certificate or change owner. client users can see only available and own certificates also they can transfer heir certificate to other user.
+I developed it simply. I haven't added permission, roles, row level security middleware and ...
 
-##### Requirements
-- Application should be written with strong typing (*TypeScript*)
-- Framework is free of choice
-- Authentication should be implemented (*type/package if free of choice*)
-- Seeds should be included (*100 random certificates, 5 random users with certificates and 5 without them*)
-- Tests have to be included
+I did project with mongoDB. In the middle of project I noticed postgres would be better because it's one of the job requirements however, it was late and I had no ime to change it.
 
-### Good luck!
+client user example: 
+username: client1
+password: admin
+
+admin user :
+username: admin
+password: admin
+
+postman collection attached to project and named Agreena.postman_collection.
+
+Test had problem I deleted them I fix it tomorrow.

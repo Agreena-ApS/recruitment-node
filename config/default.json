@@ -1,0 +1,20 @@
+{
+    "applicationPort": 5000,
+    "jwtSettings": {
+      "privateKey": "(G+KbPeShVmYp3s6v9y$B&E)H@McQfTj",
+      "issuer": "Sina Sadigh",
+      "expirationInMinutes": 60
+    },
+    "refreshTokenExpirationInDays": 180,
+    "db": "mongodb://127.0.0.1:27017/agreena",
+    "dbOptions": {
+    },
+  
+    "baseUrl": {
+      "url": "http://localhost:5000/api"
+    },
+    "cryptoKey": {
+      "key": "as7hS78U&87878ASJDK%&SD87A8&L"
+    }
+  }
+  
